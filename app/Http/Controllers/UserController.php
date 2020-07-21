@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('verified');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -137,10 +143,14 @@ class UserController extends Controller
         $role = $usuario->roles;
         if (count($role) > 0) {
             $role_id = $role[0]->id;
+            User::find($id)->roles()->updateExistingPivot($role_id, ['role_id' => $request->get('rol')]);
+
+        }else{
+
+            $usuario->asignarRol($request->get('rol'));
         }
 
-        User::find($id)->roles()->updateExistingPivot($role_id, ['role_id' => $request->get('rol')]);
-
+        
         $usuario->update();
 
         return redirect('/usuarios');

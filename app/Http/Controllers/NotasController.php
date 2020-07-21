@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class NotasController extends Controller
 {
+
+	public function __construct()
+    {
+        $this->middleware('verified');
+    }
     
 	public function index()
 	{
@@ -18,7 +23,14 @@ class NotasController extends Controller
 	public function edit($id)
 	{
 		
-		return view('notas.todas.edit', ['nota' => Notas::findOrFail($id)]);
+		$nota =  Notas::findOrFail($id);
+
+		if (auth()->id() == $nota->user_id) {
+			return view('notas.todas.edit', ['nota' => $nota]);
+		}else{
+			return redirect('/');
+		}
+		
 
 	}
 

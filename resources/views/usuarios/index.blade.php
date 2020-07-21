@@ -2,6 +2,7 @@
 
 @section('content')
 
+@can('administrador')
 <div class="container">
 	<h2>Lista de usuarios registrados <a href="usuarios/create"><button type="button" class="btn btn-success float-right">Agregar Usuario</button></a></h2>
   <h6>
@@ -55,5 +56,6 @@
     </div>
   </div>
 </div>
+@endcan
 
 @endsection

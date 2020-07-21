@@ -2,6 +2,7 @@
 
 @section('content')
 
+@can('administrador')
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
@@ -25,5 +26,6 @@
     </div>
   </div>
 </div>
+@endcan
 
 @endsection

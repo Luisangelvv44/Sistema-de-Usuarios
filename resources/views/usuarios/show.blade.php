@@ -2,6 +2,7 @@
 
 @section('content')
 
+@can('administrador')
 	<img src="{{asset('imagenes/' .$user->imagen)}}" alt="{{$user->imagen}}" class="float-sm-right mr-4 mt-4" height="250px" width="250px">
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
@@ -13,5 +14,6 @@
 			<p class="lead">{{$user->email}}</p>
 		</div>
 	</div>
+@endcan
 
 @endsection

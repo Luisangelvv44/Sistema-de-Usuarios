@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -222,8 +222,7 @@
                                 </a>
                             </li>
                             @endcan
-
-                            @can('moderador' AND 'administrador')
+                            
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon far fa-sticky-note"></i>
@@ -253,7 +252,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            @endcan
 
                         </ul>
                     </nav>

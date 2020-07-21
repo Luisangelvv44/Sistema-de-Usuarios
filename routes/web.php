@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('usuarios', 'UserController')->middleware('auth');
-Route::resource('roles', 'RoleController');
+Route::resource('roles', 'RoleController')->middleware('auth');
 
 //seccion de Notas
 
-Route::resource('/notas/todas', 'NotasController');
-Route::get('/notas/favoritas', 'NotasController@favoritas');
-Route::get('/notas/archivadas', 'NotasController@archivadas');
+Route::resource('/notas/todas', 'NotasController')->middleware('auth');
+Route::get('/notas/favoritas', 'NotasController@favoritas')->middleware('auth');
+Route::get('/notas/archivadas', 'NotasController@archivadas')->middleware('auth');
