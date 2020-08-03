@@ -28,7 +28,7 @@
 
         <div class="card">
             <div class="card-body register-card-body">
-                <p class="login-box-msg">Registar un nuevo usuario</p>
+                <p class="login-box-msg">Registrate</p>
 
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
@@ -114,6 +114,5 @@
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
-</body>
 
 </html>
